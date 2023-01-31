@@ -22,40 +22,35 @@ function Navbar({ redTheme, setRedTheme }) {
       >
         <>sync_alt</>
       </Button>
-      {user ? (
+      {user && (
         <Button2 backgroundColor="red" onClick={logout}>
           Logout
         </Button2>
-      ) : (
-        <Button2 backgroundColor="green" onClick={login}>
-          Login
-        </Button2>
       )}{" "}
-      |
       <NavLink to="/">
         <Button>
           <span>Home</span>
         </Button>
       </NavLink>{" "}
-      |
       <NavLink to="movies">
         <Button>
           <span>Movies</span>
         </Button>
       </NavLink>{" "}
-      |
-      <NavLink to="login">
+
+      {user ? "" : (<NavLink to="login">
         <Button>
           <span>Login</span>
         </Button>
-      </NavLink>{" "}
-      |
-      <NavLink to="register">
-        <Button>
-          <span>Register</span>
-        </Button>
-      </NavLink>{" "}
-      |
+      </NavLink>)}{" "}
+      
+      {!user && (
+        <NavLink to="register">
+          <Button>
+            <span>Register</span>
+          </Button>
+        </NavLink>
+      )}{" "}
       <NavLink to="about">
         <Button>
           <span>About</span>

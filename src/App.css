@@ -69,3 +69,20 @@ nav {
 .imgAsLink {
   display: inline-block;
 }
+
+.disabledBtn {
+  opacity: 0.5
+}
+
+.inlineP {
+  display: inline-block;
+  width: 75vh;
+  margin-top: 2px;
+}
+
+.warning {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: 10px;
+}

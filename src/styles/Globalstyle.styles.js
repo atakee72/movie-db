@@ -32,6 +32,7 @@ nav h1 {
       props.theme.colors.secondary ? props.theme.colors.secondary : "#bc4123"};
     padding: 0 10px 0 10px;
     border-radius: 4px;
+    margin: 6px 6px
   }
 
 a {
