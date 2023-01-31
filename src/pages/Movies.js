@@ -14,12 +14,10 @@ function Movies() {
     <div /*className={`${theme === "primary" ? "primary" : ""}`}*/>
       <div className="SnF">
         <div className="searchBar">
-          <Search
-          />   
+          <Search />
         </div>
         <div>
-          <Filter
-          />
+          <Filter />
         </div>
       </div>
 
@@ -31,7 +29,7 @@ function Movies() {
             {filtered.map((movie, i) => (
               //later set popular -> filtered
               <div key={movie.id} movie={movie}>
-                <h2>
+                <h5>
                   <Link
                     to={
                       transformTitle(movie.title.toLowerCase()) +
@@ -43,7 +41,7 @@ function Movies() {
                   >
                     {movie.title}
                   </Link>
-                </h2>
+                </h5>
                 <Link
                   className="imgAsLink"
                   to={
@@ -53,6 +51,7 @@ function Movies() {
                     "_" +
                     (i + 1)
                   }
+                  state={{ nextMovie: "abcdef" }}
                 >
                   <img
                     className="poster"

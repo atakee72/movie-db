@@ -11,7 +11,7 @@ function Home() {
   return (
     <div>
 
-      {user && (<h3>Welcome <span>{user.name}</span>!!!</h3>)}
+      {user && (<h3>Welcome <span>{user?.email}</span>!!!</h3>)}
 
 
       <h4>A Huge Database of Movies</h4>

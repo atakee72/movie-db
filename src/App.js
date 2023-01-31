@@ -15,10 +15,9 @@ import { Footer } from "./styles/Footer.styles";
 import { Container } from "./styles/Container.styles";
 import { ThemeProvider } from "styled-components";
 import { useState } from "react";
-import { Button } from "./styles/Button.styles";
+// import { Button } from "./styles/Button.styles";
 import { GlobalStyle } from './styles/Globalstyle.styles';
-
-
+import { app } from "./config/firebaseConfig";
 
 function App() {
   const [redTheme, setRedTheme] = useState(false);
@@ -30,68 +29,72 @@ function App() {
     },
   };
 
+  console.log('app :>> ', app );
+
   return (
     <div className="App">
-      <ThemeProvider theme={theme} >
+      <ThemeProvider theme={theme}>
         <GlobalStyle />
-          <AuthContextProvider>
-            <header>
-              <Navbar redTheme={redTheme} setRedTheme={setRedTheme}/>
-              <Button onClick={() => setRedTheme(!redTheme)}>C</Button>
-            </header>
-            <MoviesContextProvider>
-              <main>
-                <Routes>
-                  <Route path="/" element={<Home />} />
-                  <Route path="register" element={<Register />} />
-                  <Route
-                    path="about"
-                    element={
-                      <ProtectedRoute>
-                        <About />
-                      </ProtectedRoute>
-                    }
-                  />
-                  <Route path="login" element={<Login />} />
-  
-                  <Route
-                    path="/movies"
-                    element={
-                      <ProtectedRoute>
-                        <Movies />
-                      </ProtectedRoute>
-                    }
-                  />
-                  <Route path="movies/:id" element={<Movie />} />
-                  <Route path="*" element={<NoMatch />} />
-                </Routes>
-              </main>
+        <AuthContextProvider>
+          <header>
+            <Navbar redTheme={redTheme} setRedTheme={setRedTheme} />
+            {/* <Button className="changeB" onClick={() => setRedTheme(!redTheme)}>
+              C
+            </Button> */}
+          </header>
+          <MoviesContextProvider>
+            <main>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="register" element={<Register />} />
+                <Route
+                  path="about"
+                  element={
+                    <ProtectedRoute>
+                      <About />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route path="login" element={<Login />} />
 
-              <br />
-              <br />
-              <br />
-              <br />
-              <br />
-              <br />
+                <Route
+                  path="/movies"
+                  element={
+                    <ProtectedRoute>
+                      <Movies />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route path="movies/:id" element={<Movie />} />
+                <Route path="*" element={<NoMatch />} />
+              </Routes>
+            </main>
 
-              <Footer color="white">
-                <h3>Movies Database Project</h3>
-                <Container>
-                  <div>
-                    The Movie Database ( TMDb ) is a collaborative database about
-                    movies . The project was founded by Travis Bell in 2008 to
-                    collect movie posters .{" "}
-                  </div>
-                </Container>
-                <ul>
-                  <li>Prepared by atakee with React.js</li>
-                  <li>using TMDB database</li>
-                  <li> @copyright ? @copyright : " " 😆</li>
-                </ul>
-              </Footer>
-            </MoviesContextProvider>
-          </AuthContextProvider>
-        </ThemeProvider>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+
+            <Footer color="white">
+              <h3>Movies Database Project</h3>
+              <Container>
+                <div>
+                  The Movie Database ( TMDb ) is a collaborative database about
+                  movies. The project was founded by Travis Bell in 2008 to
+                  collect movie posters.{" "}
+                </div>
+              </Container>
+              <ul>
+                <li>Prepared by atakee with React.js</li>
+                <li>using TMDB database</li>
+                <li> @copyright ? @copyright : " " 😆</li>
+              </ul>
+            </Footer>
+          </MoviesContextProvider>
+        </AuthContextProvider>
+      </ThemeProvider>
     </div>
   );
 }

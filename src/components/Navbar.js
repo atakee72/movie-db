@@ -2,14 +2,10 @@ import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../store/AuthContext";
 import { Button, Button2 } from "../styles/Button.styles";
-// import { ThemeContext } from "styled-components";
 
-function Navbar() {
-  const { loginFunction, logoutFunction, user } = useContext(AuthContext);
+function Navbar({ redTheme, setRedTheme }) {
+  const { login, logout, user } = useContext(AuthContext);
   // const [isClicked, setIsClicked] = useState(false);
-  // const { theme, setRedTheme, redTheme } = useContext(ThemeContext);
-  // console.log('theme :>> ', theme);
-  // console.log('setRedTheme', setRedTheme)
 
   return (
     <nav>
@@ -20,13 +16,18 @@ function Navbar() {
           </a>
         </span>
       </h1>
-      <Button /*onClick={() => setRedTheme(!redTheme)}*/>Change Theme</Button>
+      <Button
+        className="material-symbols-outlined"
+        onClick={() => setRedTheme(!redTheme)}
+      >
+        <>sync_alt</>
+      </Button>
       {user ? (
-        <Button2 backgroundColor="red" onClick={logoutFunction}>
+        <Button2 backgroundColor="red" onClick={logout}>
           Logout
         </Button2>
       ) : (
-        <Button2 backgroundColor="green" onClick={loginFunction}>
+        <Button2 backgroundColor="green" onClick={login}>
           Login
         </Button2>
       )}{" "}

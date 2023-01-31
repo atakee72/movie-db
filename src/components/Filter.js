@@ -16,7 +16,14 @@ function Filter() {
 
   useEffect(() => {
     const filteredByActiveGenre = popular.filter((movie) =>
-      movie.genre_ids.includes(activeGenre)
+    {
+      if (!activeGenre) {
+        return movie;             //this is clever here!
+      } else {
+        return movie.genre_ids.includes(activeGenre);
+      }
+    }
+      
     );
     setFiltered(filteredByActiveGenre);
   }, [activeGenre]);

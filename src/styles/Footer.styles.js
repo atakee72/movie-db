@@ -18,7 +18,8 @@ const Footer = styled.footer`
   h3 {
     color: ${({ color }) => color};
     &:hover {
-      color: #2b3452;
+      color: ${(props) =>
+        props.theme.colors.secondary ? props.theme.colors.primary : "#2b3452"};
     }
   }
 `;

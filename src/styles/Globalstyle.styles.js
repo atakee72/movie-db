@@ -37,16 +37,20 @@ nav h1 {
 a {
     border-radius: 4px;
     &:hover {
-        background-color: ${(props) =>
-          props.theme.colors.secondary
-            ? props.theme.colors.secondary
-            : "#bc4123"};
+      color: ${(props) =>
+        props.theme.colors.primary ? props.theme.colors.secondary : "#bc4123"};
         }
 }
 
   span {
     border-bottom: 3px solid ${(props) =>
       props.theme.colors.secondary ? props.theme.colors.secondary : "#bc4123"};;
+  }
+
+  .internalink {
+    border-bottom: 3px solid ${(props) =>
+      props.theme.colors.secondary ? props.theme.colors.secondary : "#bc4123"};
+    display: inline-block;
   }
 
 ::-webkit-scrollbar {

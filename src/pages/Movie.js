@@ -41,19 +41,13 @@ console.log('location', location)                   //how to use it to get to th
             </p>
             <div className="internalText">
               <p>
-                <strong>
-                  Movie Homepage:
-                </strong>{" "}
-                <br />{" "}
+                <strong>Movie Homepage:</strong> <br />{" "}
                 <a href={movie.homepage} target="_blank">
                   {movie.homepage ? movie.homepage : "N/A"}
                 </a>
               </p>
               <p>
-                <strong>
-                  Overview:
-                </strong>{" "}
-                <br /> {movie.overview}
+                <strong>Overview:</strong> <br /> {movie.overview}
               </p>
               {/* <br /> <br /> <br />
             <p>
@@ -63,7 +57,9 @@ console.log('location', location)                   //how to use it to get to th
           </div>
         </div>
       )}
-      <Link to={`movies/${parseInt(index) + 1}`}><span>Next Movie</span></Link>
+      <Link to={`${parseInt(index) + 1}`}>
+        <span>Next Movie</span>
+      </Link>
     </div>
   );
 }
