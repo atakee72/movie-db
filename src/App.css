@@ -31,12 +31,11 @@ a {
   gap: 20px; */
 }
 
-img.poster {
-   width: 100%;
-   height: 100%;
-   object-fit: cover;
-   border-radius: 10px;
-   background-color: none;
+.msgInpBtn {
+  display: flex;
+  justify-content: center;
+  flex-flow: column wrap;
+  align-items: center;
 }
 
 h2 {
@@ -66,9 +65,10 @@ nav {
   top: 0px;
 } */
 
-.imgAsLink {
+/* .imgAsLink {
   display: inline-block;
-}
+  opacity: 0.9;
+} */
 
 .disabledBtn {
   opacity: 0.5

@@ -54,6 +54,36 @@ a {
     display: inline-block;
   }
 
+  .imgAsLink {
+    display: inline-block;
+    opacity: 0.80;
+    &:hover {
+      opacity: 1;
+        }
+  }
+
+  img.poster {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    background-color: none;
+ }
+ 
+.cardContainer {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-color: white;
+  color: black;
+  padding: 5px;
+  margin: 20px auto 20px auto;
+  max-width: 75%;
+  max-height: 35vh;
+  text-align: center;   
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+}
+
 ::-webkit-scrollbar {
     width: 10px;
   }

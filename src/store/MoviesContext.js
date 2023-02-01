@@ -1,5 +1,4 @@
 import { createContext } from "react";
-// import { buttonClasses } from "@mui/material";
 import useFetch from "../hooks/useFetch";
 
 export const MoviesContext = createContext();
@@ -22,7 +21,7 @@ export const MoviesContextProvider = (props) => {
 
   const deleteMovies = () => {
     setFiltered([]);
-    setActiveGenre(0);
+    // setActiveGenre(0);
   };
 
   return (

@@ -14,6 +14,7 @@ const Button = styled.button`
   border: none;
   padding: 10px;
   border-radius: 4px;
+  
 
   &:hover {
     background-color: ${(props) =>
@@ -37,6 +38,7 @@ const Button2 = styled.button`
   border: none;
   padding: 10px;
   border-radius: 4px;
+  display: inline-block;
 
   &:hover {
     padding: 15px;

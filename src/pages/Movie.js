@@ -60,6 +60,10 @@ console.log('location', location)                   //how to use it to get to th
       <Link to={`${parseInt(index) + 1}`}>
         <span>Next Movie</span>
       </Link>
+      <br /> <br />
+      <Link to="/Movies">
+        <span>Back to movies</span>
+      </Link>
     </div>
   );
 }

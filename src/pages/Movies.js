@@ -4,11 +4,9 @@ import Search from "../components/SearchBar";
 import transformTitle from "../utils/transformTitle";
 import { useContext } from "react";
 import { MoviesContext } from "../store/MoviesContext";
-import { Footer } from "../styles/Footer.styles";
 
 function Movies() {
-  const { loading, filtered } =
-    useContext(MoviesContext);
+  const { loading, filtered } = useContext(MoviesContext);
 
   return (
     <div /*className={`${theme === "primary" ? "primary" : ""}`}*/>
@@ -51,7 +49,9 @@ function Movies() {
                     "_" +
                     (i + 1)
                   }
-                  state={{ nextMovie: "abcdef" }}
+                  state={{
+                    nextMovie: "filtered[i + 1].id"
+                  }}
                 >
                   <img
                     className="poster"

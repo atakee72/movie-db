@@ -37,17 +37,26 @@ function Navbar({ redTheme, setRedTheme }) {
           <span>Movies</span>
         </Button>
       </NavLink>{" "}
-
-      {user ? "" : (<NavLink to="login">
-        <Button>
-          <span>Login</span>
-        </Button>
-      </NavLink>)}{" "}
-      
+      {user ? (
+        ""
+      ) : (
+        <NavLink to="login">
+          <Button>
+            <span>Login</span>
+          </Button>
+        </NavLink>
+      )}{" "}
       {!user && (
         <NavLink to="register">
           <Button>
             <span>Register</span>
+          </Button>
+        </NavLink>
+      )}{" "}
+      {user && (
+        <NavLink to="chat">
+          <Button>
+            <span>Chatboard</span>
           </Button>
         </NavLink>
       )}{" "}
