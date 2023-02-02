@@ -35,8 +35,10 @@ function Chat() {
       const msgs = [];
       querySnapshot.forEach((doc) => {
         msgs.push(doc.data());
+        console.log("doc.id", doc.id);
       });
       setMessages(msgs);
+      console.log("msgs", msgs);
     });
   };
 
@@ -52,7 +54,7 @@ function Chat() {
   };
   const handleDelete = async () => {
     try {
-      await deleteDoc(doc(db, "chat", documentId()));
+      await deleteDoc(doc(db, "chat", doc.id));
       alert("Document has been deleted successfully.");
     } catch (error) {
       alert("Document could not be deleted.");
@@ -77,9 +79,9 @@ function Chat() {
           messages.map((message, i) => {
             return (
               <div className="cardContainer" key={i}>
-                <p>{messages[i].author}</p>
-                <p>{messages[i].text}</p>
-                <p>{transformDate(messages[i].date?.seconds)}</p>
+                <p>{message.author}</p>
+                <p>{message.text}</p>
+                <p>{transformDate(message.date?.seconds)}</p>
                 <p>
                   <Button onClick={handleDelete}>Delete message</Button>
                 </p>

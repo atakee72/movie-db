@@ -27,6 +27,18 @@ nav h1 {
       props.theme.colors.secondary ? props.theme.colors.secondary : "#bc4123"};
   }
 
+.welcoming {
+  color: ${(props) =>
+    props.theme.colors.secondary ? props.theme.colors.secondary : "#bc4123"};
+  display: inline-block
+}
+
+.addedMovie {
+  color: ${(props) =>
+    props.theme.colors.secondary ? props.theme.colors.secondary : "#bc4123"};
+    text-align: center
+}
+
 .active {
     background-color: ${(props) =>
       props.theme.colors.secondary ? props.theme.colors.secondary : "#bc4123"};
@@ -54,6 +66,11 @@ a {
     display: inline-block;
   }
 
+  i {
+  letter-spacing: 2px;
+  border-bottom: 1px dashed;
+  }
+
   .imgAsLink {
     display: inline-block;
     opacity: 0.80;
@@ -71,7 +88,7 @@ a {
  }
  
 .cardContainer {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   background-color: white;
   color: black;
   padding: 5px;
@@ -82,6 +99,18 @@ a {
   display: flex;
   flex-flow: column wrap;
   justify-content: center;
+}
+
+.animate {
+  animation-duration: 0.5s;
+  animation-name: animate-fade;
+  animation-delay: 0.5s;
+  animation-fill-mode: backwards;
+}
+
+@keyframes animate-fade {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
 
 ::-webkit-scrollbar {

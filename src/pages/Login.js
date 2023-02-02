@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { login } = useContext(AuthContext);
+  const { login, user } = useContext(AuthContext);
 
   const handleEmail = (e) => {
     const emailInput = e.target.value;
@@ -27,8 +27,35 @@ function Login() {
 
   return (
     <div>
-      <h1>Login</h1>
-      <div>
+      <h1 style={user && { filter: "blur(2px)" }}>Login</h1>
+      {user && (
+        <h3
+          className="animate"
+          style={{
+            position: "absolute",
+            left: "35%",
+            top: "225px",
+            right: "auto",
+            border: "1px solid white",
+            outline: "1px solid white",
+            boxShadow:
+              "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
+            height: "20vh",
+            textAlign: "center",
+            verticalAlign: "middle",
+            padding: "10px",
+            lineHeight: "50px",
+            zIndex: "1",
+            filter: "unset"
+          }}
+        >
+          You're logged in with the following email address: <br />
+          <span style={{ lineHeight: "75px" }}>{user?.email}!</span> <br />
+          Welcome to our movie database!
+        </h3>
+      )}
+
+      <div style={user && { filter: "blur(2px)" }}>
         <>
           <FloatingLabel
             htmlFor="email"
@@ -84,22 +111,24 @@ function Login() {
             </p>
           </div>
         ) : (
-          <div
-            className="warning" /*style={{display: "flex", justifyContent: "flex-start", alignItems: "flex-start", marginTop:"10px"}}*/
-          >
+          <div className="warning">
             <Button className="disabledBtn" disabled>
               Login
             </Button>
             <p className="inlineP">
               {" "}
-              To enable the login button please check if you have entered your email or password correctly. Remember that your email must have an "@" and a "." And your password must have at least 7 characters.{" "}
+              To enable the login button please check if you have entered your
+              email or password correctly. Remember that your email must have an
+              "@" and a "." And your password must have at least 7 characters.{" "}
             </p>{" "}
             <br />
           </div>
         )}
       </div>
       <br />
-      <Link to="/register"><span>New here? Please go to register >>></span></Link>
+      <Link to="/register">
+        <span style={user && { filter: "blur(2px)" }}>New here? Please go to register</span>
+      </Link>
     </div>
   );
 }

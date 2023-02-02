@@ -60,6 +60,16 @@ function Navbar({ redTheme, setRedTheme }) {
           </Button>
         </NavLink>
       )}{" "}
+
+
+{user && (
+        <NavLink to="watchList">
+          <Button>
+            <span>Watchlist</span>
+          </Button>
+        </NavLink>
+      )}{" "}
+
       <NavLink to="about">
         <Button>
           <span>About</span>

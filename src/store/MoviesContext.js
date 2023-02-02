@@ -1,9 +1,10 @@
-import { createContext } from "react";
+import { createContext, useState } from "react";
 import useFetch from "../hooks/useFetch";
 
 export const MoviesContext = createContext();
 export const MoviesContextProvider = (props) => {
   console.log("props", props);
+  const [watchList, setWatchList] = useState(null)
 
   const url =
     "https://api.themoviedb.org/3/movie/popular?api_key=b6bd7a2558c1deb52558f3b6755682f6&language=en";

@@ -57,7 +57,7 @@ console.log('location', location)                   //how to use it to get to th
           </div>
         </div>
       )}
-      <Link to={`${parseInt(index) + 1}`}>
+      <Link to={`location.state.nextMovie`}>
         <span>Next Movie</span>
       </Link>
       <br /> <br />

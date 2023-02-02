@@ -11,7 +11,6 @@ function Filter() {
     setActiveGenre,
     activeGenre,
     fetchMovies,
-    filtered
   } = useContext(MoviesContext);
 
   useEffect(() => {

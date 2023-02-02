@@ -19,6 +19,7 @@ import { useState } from "react";
 import { GlobalStyle } from './styles/Globalstyle.styles';
 import { app } from "./config/firebaseConfig";
 import Chat from "./pages/Chat";
+import WatchList from "./pages/WatchList";
 
 function App() {
   const [redTheme, setRedTheme] = useState(false);
@@ -48,7 +49,22 @@ function App() {
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="register" element={<Register />} />
-                <Route path="chat" element={<Chat />} />
+                <Route
+                  path="chat"
+                  element={
+                    <ProtectedRoute>
+                      <Chat />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route
+                  path="watchList"
+                  element={
+                    <ProtectedRoute>
+                      <WatchList />
+                    </ProtectedRoute>
+                  }
+                />
                 <Route path="about" element={<About />} />
                 <Route path="login" element={<Login />} />
                 <Route
