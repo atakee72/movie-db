@@ -20,27 +20,26 @@ import { db } from "../config/firebaseConfig";
 function Movies() {
   const { loading, filtered } = useContext(MoviesContext);
   const { user } = useContext(AuthContext);
+  const [watchList, setWatchList] = useState([]);
   const [listCounter, setListCounter] = useState(0);
 
-  const watchList = [];
   const handleAddings = async (item) => {
     console.log("button clicked");
-    // if (!watchList.includes(item)) {
-    //   watchList.push(item);
-    // }
-    // console.log("watchList :>> ", watchList);
-    // console.log(watchList.length);
-    const docRef = await updateDoc(doc(db, "watchLists", "test@test.com"), {
-      movies: arrayUnion(item.original_title),
-    });
-    // console.log("Document written with ID: ", docRef.id);
-    console.log("element saved to watchlist");
+    if (!watchList.includes(item)) {
+      setWatchList([...watchList, item]);
+    }
+    console.log("watchList :>> ", watchList);
+    console.log(watchList.length);
+    // const docRef = await updateDoc(doc(db, "watchLists", "test@test.com"), {
+    //   movies: arrayUnion(item.original_title),
+    // });
+    // console.log("element saved to watchlist");
   };
 
-  // useEffect(() => {
-  //   setListCounter(watchList.length);
-  //   console.log("listCounter", listCounter);
-  //   }, [handleAddings()])
+  useEffect(() => {
+    setListCounter(watchList.length);
+    console.log("listCounter", listCounter);
+  }, [watchList]);
 
   return (
     <div /*className={`${theme === "primary" ? "primary" : ""}`}*/>
@@ -55,7 +54,7 @@ function Movies() {
 
       {loading && <div className="loading">Loading...</div>}
       <p className="addedMovie">
-        You have added ımovies to your personal watchlist!
+        You have added {listCounter} movies to your personal watchlist!
       </p>
       {filtered?.length > 0 ? (
         !loading && (
