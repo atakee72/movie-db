@@ -9,6 +9,7 @@ import Movies from "./pages/Movies";
 import Movie from "./pages/Movie";
 import { MoviesContextProvider } from "./store/MoviesContext";
 import { AuthContextProvider } from "./store/AuthContext";
+import { WatchListProvider } from "./store/WatchListContext";
 import Navbar from "./components/Navbar";
 import ProtectedRoute from "./routes/ProtectedRoute";
 import { Footer } from "./styles/Footer.styles";
@@ -16,7 +17,7 @@ import { Container } from "./styles/Container.styles";
 import { ThemeProvider } from "styled-components";
 import { useState } from "react";
 // import { Button } from "./styles/Button.styles";
-import { GlobalStyle } from './styles/Globalstyle.styles';
+import { GlobalStyle } from "./styles/Globalstyle.styles";
 import { app } from "./config/firebaseConfig";
 import Chat from "./pages/Chat";
 import WatchList from "./pages/WatchList";
@@ -31,7 +32,7 @@ function App() {
     },
   };
 
-  console.log('app :>> ', app );
+  console.log("app :>> ", app);
 
   return (
     <div className="App">
@@ -45,60 +46,62 @@ function App() {
             </Button> */}
           </header>
           <MoviesContextProvider>
-            <main>
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="register" element={<Register />} />
-                <Route
-                  path="chat"
-                  element={
-                    <ProtectedRoute>
-                      <Chat />
-                    </ProtectedRoute>
-                  }
-                />
-                <Route
-                  path="watchList"
-                  element={
-                    <ProtectedRoute>
-                      <WatchList />
-                    </ProtectedRoute>
-                  }
-                />
-                <Route path="about" element={<About />} />
-                <Route path="login" element={<Login />} />
-                <Route
-                  path="/movies"
-                  element={
-                    <ProtectedRoute>
-                      <Movies />
-                    </ProtectedRoute>
-                  }
-                />
-                <Route path="movies/:id" element={<Movie />} />
-                <Route path="*" element={<NoMatch />} />
-              </Routes>
-            </main>
+            <WatchListProvider>
+              <main>
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="register" element={<Register />} />
+                  <Route
+                    path="chat"
+                    element={
+                      <ProtectedRoute>
+                        <Chat />
+                      </ProtectedRoute>
+                    }
+                  />
+                  <Route
+                    path="watchList"
+                    element={
+                      <ProtectedRoute>
+                        <WatchList />
+                      </ProtectedRoute>
+                    }
+                  />
+                  <Route path="about" element={<About />} />
+                  <Route path="login" element={<Login />} />
+                  <Route
+                    path="/movies"
+                    element={
+                      <ProtectedRoute>
+                        <Movies />
+                      </ProtectedRoute>
+                    }
+                  />
+                  <Route path="movies/:id" element={<Movie />} />
+                  <Route path="*" element={<NoMatch />} />
+                </Routes>
+              </main>
 
-            <br />
-            <br />
-            <br />
+              <br />
+              <br />
+              <br />
 
-            <Footer color="white">
-              <h3>Movies Database Project</h3>
-              <Container>
-                <div>
-                  The Movie Database ( TMDb ) is a collaborative database about
-                  movies. The project was founded by Travis Bell in 2008 to
-                  collect movie posters.{" "}
-                </div>
-              </Container>
-              <ul>
-                <li>Prepared by atakee with React.js</li>
-                <li>using TMDB database</li>
-                <li> @copyright ? @copyright : " " 😆</li>
-              </ul>
-            </Footer>
+              <Footer color="white">
+                <h3>Movies Database Project</h3>
+                <Container>
+                  <div>
+                    The Movie Database ( TMDb ) is a collaborative database
+                    about movies. The project was founded by Travis Bell in 2008
+                    to collect movie posters.{" "}
+                  </div>
+                </Container>
+                <ul>
+                  <li>Prepared by atakee with React.js</li>
+                  <li>using TMDB database</li>
+                  <li> @copyright ? @copyright : " " 😆</li>
+                </ul>
+              </Footer>
+            </WatchListProvider>
           </MoviesContextProvider>
         </AuthContextProvider>
       </ThemeProvider>
